@@ -1,0 +1,34 @@
+{
+    "name": "virtual-dom",
+    "version": "0.0.1",
+    "description": "a virtual dom implementation",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development webpack-dev-server",
+        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+        "test": "mocha \"src/**/*.spec.js\" --compilers js:../../node_modules/babel-core/register",
+        "eslint": "eslint \"src/**/*.js\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wzh1002/virtual-dom.git"
+    },
+    "keywords": [
+        "virtual-dom"
+    ],
+    "author": "wzh1002",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/wzh1002/virtual-dom/issues"
+    },
+    "devDependencies": {
+        "babel-loader": "^7.0.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "cross-env": "^5.0.0",
+        "chai": "^4.0.1",
+        "eslint": "^3.19.0",
+        "jsdom": "^7.0.2",
+        "mocha-jsdom": "^1.1.0",
+        "webpack-dev-server": "^2.4.5"
+    }
+}

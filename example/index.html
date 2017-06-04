@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>virtual dom test</title>
+</head>
+<body>
+
+
+    <script src="../dist/js/bundle.js"></script>
+    <script>
+        const h = vd.h;
+        const diff = vd.diff;
+        const patch = vd.patch;
+
+        let tree = h('div', {'id': 'container', key: '0'}, [
+            h('h1', {style: 'color: blue', key: '1'}, ['simple virtual dom']),
+            h('ul', {key: '2'}, [h('li')]),
+            h('p', { key: '3' }, ['Hhlo, virtual-dom']),
+            h('span', ['666']),
+            h('input', {value: '666'})
+        ]);
+
+
+        let root = tree.render();
+        document.body.appendChild(root);
+
+        let newTree = h('div', {'id': 'container', key: '0'}, [
+            h('p', { key: '3',  style: 'color: red'}, ['Hhlo, virtual-dom']),
+            h('h2',{ key: '1'}, ['simple virtual dom', '666']),
+            h('span', ['666']),
+            h('textarea', {value: 233}, ['666']),
+            h('ul',{ key: '2'}, [h('li'), h('li')])
+        ]);
+
+        let patches = diff(tree, newTree);
+
+        let update = () => {
+            patch(root, patches);
+        }
+    </script>
+</body>
+</html>
